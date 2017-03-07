@@ -1,5 +1,5 @@
 class DbConfig 
-  COLUMNS = { 
+  IP2_COLUMNS = { 
      :COUNTRY                  => [0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,  2, 2, 2,  2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
      :REGION                   => [0, 0, 0, 3, 3, 3, 3, 3, 3, 3, 3, 3,  3, 3, 3,  3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
      :CITY                     => [0, 0, 0, 4, 4, 4, 4, 4, 4, 4, 4, 4,  4, 4, 4,  4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
@@ -23,7 +23,7 @@ class DbConfig
    
  def self.setup_database(db_index)
    # strip all 0 value & downcase keys
-  cols = COLUMNS.inject({}) {|memo, (key, value)|
+  cols = IP2_COLUMNS.inject({}) {|memo, (key, value)|
    (memo[key.to_s.downcase.to_sym] = value[db_index] if value[db_index] > 0)
    memo
   }
