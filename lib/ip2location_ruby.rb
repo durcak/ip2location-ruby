@@ -27,6 +27,10 @@ class Ip2location
 	self.record_class6 = (Ip2LocationRecord.init database, 6)
     self
   end
+	
+  def close()
+    self.file.close
+  end
   
   def get_all(ip)
     ipno = IPAddr.new(ip, Socket::AF_UNSPEC)
